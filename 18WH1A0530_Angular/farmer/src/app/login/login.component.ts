@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         }
         else {
           //  alert('Invalid credentials..');
-          this.notifyService.showFailure("Invalid cerdentials!!", "Notification");
+          this.notifyService.showFailure("Invalid credentials!!", "Notification");
         }
       },
         (error) => { })

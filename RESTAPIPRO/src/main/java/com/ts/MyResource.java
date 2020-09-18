@@ -14,6 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.dao.AnswerDAO;
 import com.dao.BookingDAO;
 import com.dao.FarmerDAO;
@@ -50,6 +52,8 @@ public class MyResource {
 	@Consumes(MediaType.APPLICATION_JSON)
     public void registerFarmer(Farmer farmer){
     	System.out.println("Data recieved..." + farmer);
+    	farmer.setPassword(BCrypt.hashpw(farmer.getPassword(), BCrypt.gensalt()));
+    	System.out.println(farmer.getPassword());
     	FarmerDAO farmerdao = new FarmerDAO();
     	farmerdao.register(farmer);
     }

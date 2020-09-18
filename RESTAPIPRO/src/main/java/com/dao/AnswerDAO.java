@@ -27,7 +27,7 @@ public class AnswerDAO {
 		Query q1 = session.createQuery("from Answer a where a.question.questionId=:questionId");
 		q1.setParameter("questionId", questionId);
 		List<Answer> ansList = q1.list();
-		session.close();
+		
 		return ansList;
 	}
 	public Answer getAnswerById(int answerId){

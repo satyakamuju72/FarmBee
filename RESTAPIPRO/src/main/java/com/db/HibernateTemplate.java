@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
+import org.mindrot.jbcrypt.BCrypt;
 
 import com.dto.Farmer;
 import com.dto.Vehicle;
@@ -65,14 +66,27 @@ public class HibernateTemplate {
 	
 	public static Object getObjectByUserPass(String loginId,String password) {
 	
-	String queryString = "from Farmer where loginId = :loginId and password =:password";
+	/*String queryString = "from Farmer where loginId = :loginId and password =:password";
 	
 	  Query query = sessionFactory.openSession().createQuery(queryString);
 	  query.setString("loginId", loginId);
 	  query.setString("password", password);
 	  Object queryResult = query.uniqueResult();
 	  Farmer farmer = (Farmer)queryResult;
-	  return farmer; 
+	  return farmer; */
+		String queryString = "from Farmer where loginId = :loginId";
+		  Query query = sessionFactory.openSession().createQuery(queryString);
+		  query.setString("loginId", loginId);
+		  Object queryResult = query.uniqueResult();
+		  Farmer farmer = (Farmer)queryResult;
+		  String hashedPassword = farmer.getPassword();
+		if (BCrypt.checkpw(password, hashedPassword)){
+			System.out.println("The password matches.");
+		}else{
+			System.out.println("The password does not match.");
+			farmer = null;
+	}
+		return farmer;
 	}
 	public static Object getObjectByPhone(String email, Session session) {
 		String queryString = "from Farmer where FarmerMobile = :email";

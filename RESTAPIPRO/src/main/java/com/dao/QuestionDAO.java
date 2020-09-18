@@ -46,7 +46,7 @@ public class QuestionDAO {
 		session.saveOrUpdate(question);
 		Transaction tx = session.beginTransaction();
 		tx.commit(); //permanent save
-		
+		session.close();
 	}
 	public List<String> getTitles(){
 		Configuration config = new Configuration();
@@ -56,7 +56,6 @@ public class QuestionDAO {
 		Query q1 = session.createQuery("select distinct q.title from Question q");
 		System.out.println(q1.list());
 		List<String> res = q1.list();
-		
 		return res;
 		
 	}
