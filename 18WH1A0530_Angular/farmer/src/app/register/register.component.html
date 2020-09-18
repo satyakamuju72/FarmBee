@@ -1,0 +1,29 @@
+<html>
+    <head>
+  <title> Transparent Login Form Design </title>
+  <link rel="stylesheet" type="text/css" href="register.component.css">
+</head>
+
+<body>
+  <div class="bg">
+    <div class="login-box">
+      <img src="assets\images\avatar.png" class="avatar">
+      <h1>Register Here</h1>
+      <form #registerForm="ngForm" (ngSubmit) ="registerSubmit(registerForm.value)" novalidate>
+        <p>Name</p>
+        <input type="text" name="farmerName" ngModel #farmerName="ngModel"  [(ngModel)] ='farmer.farmerName' placeholder="Enter your name" required>
+        <p>Conatct</p>
+        <input type="text" name="farmerMobile" ngModel #farmerMobile="ngModel"  [(ngModel)] ='farmer.farmerMobile'  placeholder="Enter your mobile number" required>
+        <p>Email Id</p>
+        <input type="text" name="emailId" ngModel #emailId="ngModel"  [(ngModel)] ='farmer.emailId' placeholder="Enter emailId" required>
+        <p>Login Id</p>
+        <input type="text" name="loginId" ngModel #loginId="ngModel"  [(ngModel)] ='farmer.loginId'  placeholder="Enter loginId" required>
+        <p>Password</p>
+        <input type="password" name="password" ngModel #password="ngModel"  [(ngModel)] ='farmer.password' placeholder="Enter password" required>
+        <input type="submit" class="btnSubmit" [disabled]="!registerForm.valid" value="Register" />
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>

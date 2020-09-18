@@ -1,0 +1,8 @@
+.bg {
+  background-image: url('\Users\MAC\18WH1A0530_Angular\farmer\src\assets\images\vehidrive.jpg');
+  background-size: cover;
+  min-height: 750px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}

@@ -1,0 +1,111 @@
+@import url('https://css.gg/chevron-double-down.css');
+.login-container
+{
+  padding: 10px;
+  margin-bottom: 5%;
+}
+.login-form-2 {
+  width: 400px;
+  height: 500px;
+  border: 1px solid #2d2d2d;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  display: grid;
+  justify-content: center;
+  padding: 5%;
+  background-image: url("\Users\MAC\18WH1A0530_Angular\farmer\src\assets\images\bg2.jpg");
+  background-size: 700px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bg-img {
+  background-image: url("\Users\MAC\18WH1A0530_Angular\farmer\src\assets\images\login.jpg");
+  min-height: 720px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.login-form-2 h3{
+  padding: 15%;
+  font-size: xx-large;
+  text-align: center;
+  color: #0f1b03;
+}
+.login-container form{
+  padding: 5%;
+ 
+}
+.btnSubmit
+{
+  width: 60%;
+  height: 30px;
+  border-radius: 1rem;
+  padding: 1.5%;
+  border: none;
+  cursor: pointer;
+}
+.login-form-2 .btnSubmit{
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+}
+.login-form-2 .ForgetPwd{
+  color: rgb(21, 5, 80);
+  font-weight: 600;
+  text-decoration: none;
+}
+.login-form-2 .fpwd
+{
+  cursor: pointer;
+  text-align:right;
+}
+.bigText {
+  height:30px;
+}
+n3
+{
+  color:white;
+}
+p{
+  color : white;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+.details {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.purple-square {
+  background-color: #B10DC9;
+  top: 50%;
+    left: 50%;
+  width: 300px;
+  height: 300px;
+}
+
+
+.logout{
+  font-style: italic;
+  color: white;
+}
+#hidden {
+  display: inline;
+  height: 100px;
+}
+
+:checked + #hidden {
+  display: block;
+}
+.modal-content{
+  background-image: linear-gradient(#005aa7,#fffde4);
+}

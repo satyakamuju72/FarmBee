@@ -1,0 +1,34 @@
+ul.navbar {
+    position: relative;
+    z-index: 100;
+    overflow:visible;
+}
+
+ @media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #1C2331!important;
+    }
+}
+.view,body,html{height:100%}.navbar{background-color:rgba(0,0,0,0.7)}.page-footer,.top-nav-collapse{background-color:#e48585}@media only screen and (max-width:768px){.navbar{background-color:#1C2331}}
+
+ 
+
+/* .navbar{
+    
+        background-image: url('F:\farmer\src\assets\images\headerbg.JPG') !important;
+        background-repeat: repeat;
+} */
+
+
+
+
+/* important */
+li
+{
+    color: black;
+    padding-left:1em;
+}
+
+nav .collapse li a{
+    color: #e48585 !important;
+}

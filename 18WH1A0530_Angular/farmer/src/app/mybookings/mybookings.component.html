@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="mybookings.component.css">
+</head>
+
+<body>
+    <div class="bg ">
+        <div class="container">
+            <br/><br/><br/>
+            <table class="table table-bordered table-hover table-sm" border="2" align="center"
+                style="top: 5%;">
+                <thead>
+                    <tr class="bg-info text-white">
+                        <th>ID</th>
+                        <th>SOURCE</th>
+                        <th>DESTINATION</th>
+                        <th>CROP TYPE</th>
+                        <th>LOADSIZE</th>
+                        <th>POOL</th>
+                        <th>DATE</th>
+                        <th>BOOKING STATUS</th>
+                        <th>PRICE</th>
+                        <th>VEHICLE NUMBER</th>
+                        <th>DRIVER NAME</th>
+                        <th>DRIVER NUMBER</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-white" *ngFor='let b of bookings'>
+                        <td>{{b.bookingId}}</td>
+                        <td>{{b.source}}</td>
+                        <td>{{b.destination}}</td>
+                        <td>{{b.cropType}}</td>
+                        <td>{{b.loadSize}}</td>
+                        <td>{{b.pool}}</td>
+                        <td>{{b.wantDate | date: 'dd-MM-yyyy'}}</td>
+                        <td>{{b.bookingStatus}}</td>
+                        <td>{{b.price}}</td>
+                        <td>{{b.vehicle.vehicleNo}}</td>
+                        <td>{{b.vehicle.driverName}}</td>
+                        <td>{{b.vehicle.driverNumber}}</td>
+                        <td><button (click)="deleteBooking(b)" class="glyphicon glyphicon-trash"></button>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

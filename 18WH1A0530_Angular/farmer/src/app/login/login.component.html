@@ -1,0 +1,158 @@
+<div class="bg-img">
+  <div *ngIf="!user">
+    <div class="container login-container">
+      <div class="row">
+        <div class="login-form-2">
+          <h3 style="color: white;">User Login</h3>
+          <form #loginForm="ngForm" class="form-group" (ngSubmit)="loginSubmit(loginForm.value)" novalidate>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input type="text" class="form-control bigText" name="loginId" ngModel #loginId="ngModel" required
+                [(ngModel)]='login.loginId' placeholder="Your loginId *" value="" size="30" /><br /><br />
+              <div class="input-group">
+                <br />
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control bigText" name="password" ngModel #password="ngModel" required
+                  [(ngModel)]='login.password' placeholder="Your Password *" value="" size="30" />
+              </div><br /><br />
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btnSubmit" [disabled]="!loginForm.valid" value="Login" />
+            </div>
+          </form>
+          <div class="fpwd" style="float: right;"><br/><br/><b><a (click)="emailgather()">Forgot password</a></b></div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf = "user">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class=" login-form-2">
+  <h2 style="text-align: center;">MY PROFILE</h2>
+        <form class="form-group">
+          Id: <input type="number" name="farmerId" [(ngModel)]="farmer.farmerId" readonly
+          class="form-control"><br />
+      Name: <input type="text" name="empName" [(ngModel)]="farmer.farmerName"
+          class="form-control"><br />
+      Mobile: <input type="number" name="salary" [(ngModel)]="farmer.farmerMobile"
+          class="form-control"><br />
+      Email Id: <input type="text" name="gender" [(ngModel)]="farmer.emailId"
+          class="form-control"><br />
+      LoginId : <input type="text" name="loginId" [(ngModel)]="farmer.loginId" class="form-control"><br />            
+      Password : <input type="password" name="password" [(ngModel)]="farmer.password" class="form-control"><br />            
+          	<div>
+              <button class="btn btn-primary" (click) = "updateFarmer()">Update</button>
+        	</div>
+        </form>
+        
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title"><b>Enter your mobile number</b></h4>
+          <span class="close" data-dismiss="modal" style="cursor: pointer;">&times;</span>
+      </div>
+
+      <div class="modal-body">
+          <form class="form-group">
+              <label for="exampleFormControlTextarea6"></label><br/>
+               <input type="number" name="number" ngModel #title="ngModel"  [(ngModel)] ='number' pattern="[0-9]{10}" required placeholder="**********" ><br/><br />
+          </form>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" (click)="validate()" data-dismiss="modal">Send OTP</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal2" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title"><b>Enter your OTP</b></h4>
+          <span class="close" data-dismiss="modal" style="cursor: pointer;">&times;</span>
+      </div>
+
+      <div class="modal-body">
+          <form class="form-group">
+              <label for="exampleFormControlTextarea6"></label><br/>
+               <input type="number" name="number" ngModel #title="ngModel"  [(ngModel)] ='otpd'  required placeholder="Enter your OTP" ><br/><br />
+          </form>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" (click)="otp()" data-dismiss="modal">Verify OTP</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="errorModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-body">
+          <h2>Invalid OTP</h2>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" (click)="otpverify()" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<div class="modal fade" id="resetpw" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title"><b>Enter new password</b></h4>
+          <span class="close" data-dismiss="modal" style="cursor: pointer;">&times;</span>
+      </div>
+
+      <div class="modal-body">
+          <form class="form-group">
+              <label for="exampleFormControlTextarea6"></label><br/>
+               <input type="password" name="number" ngModel #title="ngModel"  [(ngModel)] ='newpwd'  required placeholder="Enter new password" ><br/><br />
+          </form>
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary btn-sm" (click)="updatepassword()" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+    
+  </div>
+</div>

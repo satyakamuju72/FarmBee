@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "farmer",
+      "public": "dist/farmer",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

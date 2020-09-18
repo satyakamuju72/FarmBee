@@ -1,0 +1,41 @@
+body {
+  font-family: source sans pro,sans-serif;
+  color: #373a3c;
+  background-color: #fff;
+  background-image: url("\Users\MAC\18WH1A0530_Angular\farmer\src\assets\images\community.jpg");
+  background-size: cover;
+  min-height: 700px;
+}
+.banner {
+    color: #fff;
+    text-align: center;
+    font-size: larger;
+}
+.post {
+    background-color: white ;
+    color: black;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 50px;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 70%;
+    
+}
+.btn
+{
+    position: relative;
+    bottom: 0%;
+    border-radius: 20px;
+    border-style: solid;
+    background-color: #424dee;
+    color: blanchedalmond;
+}
+hr{
+    position: relative; 
+    top: 20px; 
+    border: none; 
+    height: 3px; 
+    background: black; 
+    margin-bottom: 50px; 
+}

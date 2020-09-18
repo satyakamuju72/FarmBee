@@ -1,0 +1,56 @@
+<head>
+  <meta charset="utf-16" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+<body><br /><br /><br />
+    <div class="container">
+        <div class="info">
+            By <b>{{question.farmer.farmerName}},</b>
+        </div>
+        <hr style="size: 10pixels;">
+        <p><b>Q. {{question.query}}?</b> </p><br />
+        <form #ansForm="ngForm" (ngSubmit)="addAnswer(ansForm.value)">
+            <textarea rows="4" cols="50" name="suggestion" form="usrform" name="suggestion" ngModel
+                #suggestion="ngModel" [(ngModel)]='answer.suggestion' value={{voiceText}} placeholder="Type here..."></textarea><br />
+            <div *ngIf="voiceActiveSectionDisabled; else voicesection;">
+                <button type="button" (click)="startVoiceRecognition()">Record</button>
+            </div>
+            <ng-template #voicesection>
+                <ng-container *ngIf="!voiceActiveSectionError; else failure">
+                    <ng-container *ngIf="voiceText; else start">
+                        <!-- <span>Hiii {{voiceText}}</span> -->
+                    </ng-container>
+                    <ng-template #start>
+                        <ng-container *ngIf="voiceActiveSectionListening; else beginning">
+                            <span>Listening...</span>
+                        </ng-container>
+                        <ng-template #beginning>
+                            <span>Start talking...</span>
+                        </ng-template>
+                    </ng-template>
+                </ng-container>
+                <ng-template #failure>
+                    <span>Didn't catch that</span>
+                </ng-template>
+                <div>
+                    <button (click)="closeVoiceRecognition()">Close</button>
+                    <button (click)="startVoiceRecognition()">Restart</button>
+                </div>
+            </ng-template>
+
+            <input type="submit" value="Post reply" />
+        </form>
+    </div><br /><br />
+    <div class="replies" *ngFor="let ans of ansList">
+        From <b>{{ans.farmer.farmerName}},</b>
+        <button style="font-size:24px; float: right;" (click)="delete(ans.farmer.farmerId, ans)"> <i
+                class="fa fa-trash"></i></button>
+        <hr>
+        <b>A.</b>{{ans.suggestion}}.
+    </div>
+
+</body>

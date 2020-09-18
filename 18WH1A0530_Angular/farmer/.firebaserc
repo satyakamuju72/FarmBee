@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "farmer-2201": {
+      "hosting": {
+        "farmer": [
+          "farmer-2201"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+<head>
+    <!-- Latest compiled and minified CSS -->
+</head>
+<div class = "bg">
+    <br /><br/><br/><br /><br /><br />
+<div class="container">
+<div class="modal fade" id="empModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Form</h4>
+                <span class="close" data-dismiss="modal">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-group">
+                    Enter Vehicle Number: <input type="text" name="vehicleNo" [(ngModel)]="editObject.vehicleNo"
+                        class="form-control"><br />
+                    Enter Vehicle Type: <input type="text" name="vehicleType" [(ngModel)]="editObject.vehicleType"
+                        class="form-control"><br />
+                    Enter Driver Name :<input type="text" name="driverName" [(ngModel)]="editObject.driverName"
+                        class="form-control"><br />
+                    Enter Driver Number:<input type="number" name="driverNumber" [(ngModel)]="editObject.driverNumber"
+                        class="form-control"><br />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" (click)="updateVehDrive()" data-dismiss="modal">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover table-sm">
+    <thead>
+        <tr class="bg-info text-white">
+            <th>VEHICLE NUMBER</th>
+            <th>VEHICLE TYPE</th>
+            <th>DRIVER NAME</th>
+            <th>DRIVER NUMBER</th>
+            <th>DELETE</th>
+            <th>EDIT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let vd of vehidrive'>
+            <td>{{vd.vehicleNo}}</td>
+            <td>{{vd.vehicleType | uppercase}}</td>
+            <td>{{vd.driverName | uppercase}}</td>
+            <td>{{vd.driverNumber}}</td>
+            <td><button (click)="deleteVehDrive(vd)" ><i class="fa fa-trash"></i></button>
+            </td>
+            <td>
+                <button (click)="showEditPopup(vd)"> <i class="fa fa-edit"></i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" (click)="showAddPopup()">Add vehicle</button>
+<div class="modal fade" id="addModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Update Form</h4>
+                <span class="close" data-dismiss="modal">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-group">
+                    Enter Vehicle Number: <input type="text" name="vehicleNo" [(ngModel)]="vehicleDriver.vehicleNo"
+                        class="form-control"><br />
+                    Enter Vehicle Type: <input type="text" name="vehicleType" [(ngModel)]="vehicleDriver.vehicleType"
+                        class="form-control"><br />
+                    Enter Driver Name :<input type="text" name="driverName" [(ngModel)]="vehicleDriver.driverName"
+                        class="form-control"><br />
+                    Enter Driver Number:<input type="number" name="driverNumber" [(ngModel)]="vehicleDriver.driverNumber"
+                        class="form-control"><br />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary btn-sm" (click)="addVehDrive()" data-dismiss="modal">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

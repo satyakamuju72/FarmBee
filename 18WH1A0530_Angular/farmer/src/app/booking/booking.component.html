@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Booking Form</title>
+  <link rel="stylesheet" type="text/css" href="booking.component.css">
+</head>
+
+<body>
+  <div class="bg">
+    <div class="login-box">
+      <img src="assets\images\avatar.png" class="avatar">
+      <h1>Book a Vehicle here</h1>
+      <form #bookingForm="ngForm" (ngSubmit) ="bookingSubmit(bookingForm.value)" novalidate>
+        <p>Source</p>
+        <input type="text" name="source" ngModel #source="ngModel"  [(ngModel)] ='booking.source' placeholder="Enter source" required>
+        <p>Destination</p>
+        <input type="text" name="destination" ngModel #destination="ngModel"  [(ngModel)] ='booking.destination'  placeholder="Enter destination" required>
+        <p>Crop type</p>
+        <input type="text" name="cropType" ngModel #cropType="ngModel"  [(ngModel)] ='booking.cropType' placeholder="Enter crop type" required>
+        <p>Enter booking date</p>
+        <input type="date" name="wantDate" ngModel #wantDate="ngModel"  [(ngModel)] ='booking.wantDate' placeholder="Enter your date" required>
+        <p>Quantity</p>
+        <input type="text" name="loadSize" ngModel #loadSize="ngModel"  [(ngModel)] ='booking.loadSize'  placeholder="Enter Quantity" required>
+        <!-- <label for="pool"></label> -->
+        Select type: <select type="text" name="pool" ngModel
+                [(ngModel)]='booking.pool'><br />
+                <option value="pooling">pooling</option>
+                <option value="single">single</option>
+            </select><br /><br /><br />
+        <input type="submit" class="btnSubmit" [disabled]="!bookingForm.valid" value="Book"/>
+      </form>
+      <form (ngSubmit)="myBookings()">
+        <button class="btnSubmit">My Bookings</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

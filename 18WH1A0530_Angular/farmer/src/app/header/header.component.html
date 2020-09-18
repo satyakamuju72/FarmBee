@@ -1,0 +1,229 @@
+<!-- <html>
+
+<head>
+  <title>Farmer friend</title>
+  <link rel="stylesheet" href="header.component.css">
+</head>
+
+<body>
+  <div id="google_translate_element" style="float: right;"></div>
+  <div *ngIf="!userck() && !empck(); then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light " style="background:black;">
+      <div class="container">
+        <a class="nav-link" routerLink="/home" ><p style="font-family: '', cursive;  color:#f7ec9d">Farm Bee</p>
+          <span class="sr-only">(current)</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register"><b>
+                  Register
+                </b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login"><b>
+                  Login
+                </b></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div *ngIf="!empck(); then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light " style="background:black;opacity:0.8;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="nav-link" routerLink="/home" ><p style="font-family: 'Dancing Script', cursive;  color:#f7ec9d">Farm Bee</p>
+          <span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav ml-auto">
+            <li >
+              <a class="nav-link" routerLink="/vehicledriver">
+                <b>Transport</b>
+              </a>
+            </li>
+            <li> 
+              <a class="nav-link" routerLink="/abookings">Bookings</a>
+            </li>            
+            <li >
+              <a class="nav-link" (click)="logout()">
+                <b>Logout</b>
+              </a>
+            </li>
+            
+
+          </ul>
+        </div>
+      </nav>
+    </ng-template>
+    <ng-template #elseBlock>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background:black;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="nav-link" routerLink="/home" ><p style="font-family: 'Dancing Script', cursive; color:#f7ec9d">Farm Bee</p>
+          <span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              
+              <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                POOLING
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/mybookings">My bookings</a>
+                <a class="dropdown-item" routerLink="pooling">Book</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown"> 
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                COMMUNITY
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/forum">Global Feed</a>
+                <a class="dropdown-item" routerLink="/feed">Your Feed</a>
+                <a class="dropdown-item" routerLink="/title">Search by id</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ACCOUNT
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" routerLink="/login">My Profile</a>
+                <a class="dropdown-item" routerLink="/" (click)="logout()">LOGOUT</a>
+              </div>
+            </li>
+            
+            <li>
+              <div id="google_translate_element"></div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </ng-template>
+
+  </ng-template>
+</body>
+
+</html> -->
+
+
+<html>
+
+<head>
+  <title>Farmer friend</title>
+  <link rel="stylesheet" href="header.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body >
+
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"  >
+    <div class="container">
+      <a class="nav-link" routerLink="/home">
+        <h2 style="color:#8bc422; font-family: 'Cardo', serif;"><b><i>Farm Bee</i></b></h2>
+        <span class="sr-only">(current)</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <div *ngIf="!userck() && !empck(); then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/register"><b style="color:#fff; font-family: 'Cardo', serif;">
+                  Register
+                </b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login">
+                <b style="color:#fff; font-family: 'Cardo', serif;">
+                  Login
+
+                </b>
+              </a>
+            </li>
+
+          </ng-template>
+          <ng-template #elseBlock>
+            <div *ngIf="!empck(); then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+              <li>
+                <a class="nav-link" routerLink="/vehicledriver">
+                  <b style="color:#fff; font-family: 'Cardo', serif;">Transport</b>
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" routerLink="/abookings"><b style="color:#fff; font-family: 'Cardo', serif;">Bookings</b></a>
+              </li>
+              <li>
+                <a class="nav-link" (click)="logout()">
+                  <b style="color:#fff; font-family: 'Cardo', serif;">Logout</b>
+                </a>
+              </li>
+            </ng-template>
+            <ng-template #elseBlock>
+              <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <b style="color:#fff; font-family: 'Cardo', serif;">POOLING</b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" routerLink="/mybookings">My bookings</a>
+                  <a class="dropdown-item" routerLink="pooling">Book</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <b style="color:#fff; font-family: 'Cardo', serif;">COMMUNITY</b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" routerLink="/forum">Global Feed</a>
+                  <a class="dropdown-item" routerLink="/feed">Your Feed</a>
+                  <a class="dropdown-item" routerLink="/title">Search by title</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <b style="color:#fff; font-family: 'Cardo', serif;">ACCOUNT</b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" routerLink="/login">My Profile</a>
+                  <a class="dropdown-item" routerLink="/thankyou">FeedBack</a>
+                  <a class="dropdown-item" routerLink="/" (click)="logout()">LOGOUT</a>
+                </div>
+              </li>
+              
+            </ng-template>
+          </ng-template>
+          
+          <li>
+            <div id="google_translate_element" ></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</body>
+
+</html>
