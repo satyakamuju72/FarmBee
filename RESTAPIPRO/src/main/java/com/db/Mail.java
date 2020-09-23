@@ -32,7 +32,7 @@ public class Mail {
 		message.setFrom(new InternetAddress(myAccountEmail));
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 		message.setSubject("Your recent feedback to FarmBee");
-		String htmlCode="<h4>Hey "+farmerName+" ,<br><br> Thanks for your Feedback</h4><h4>"+feedback+"</h2>";
+		String htmlCode="<h4>Hey "+farmerName+" ,<br><br> Thank you for joining our FarmBee family and showing love with your Feedback<br><br></h4><h4>Your Feedback:"+feedback+"<br><br></h2>With Love,<br><br>FarmBee family💜";
 		message.setContent(htmlCode,"text/html");
 		Transport.send(message);
 		System.out.println("Mail Sent Successfully!");
