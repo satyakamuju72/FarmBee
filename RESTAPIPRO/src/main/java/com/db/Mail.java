@@ -31,7 +31,7 @@ public class Mail {
 		Message message=new MimeMessage(session);
 		message.setFrom(new InternetAddress(myAccountEmail));
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-		message.setSubject("sample mail");
+		message.setSubject("Your recent feedback to FarmBee");
 		String htmlCode="<h1>Thanks for your Feedback</h1><h2 style='color:orange;'>"+feedback+"</h2>";
 		message.setContent(htmlCode,"text/html");
 		Transport.send(message);
