@@ -312,9 +312,10 @@ public class MyResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public void sendMail(@PathParam("farmerId") int  farmerId, @PathParam("feedback") String feedback){
 		Farmer farmer = new FarmerDAO().getFarmer(farmerId);
+		String farmerName = farmer.getFarmerName();
 		String mailId = farmer.getEmailId();
 		Mail mail = new Mail();
-		mail.sendMail(mailId, feedback);
+		mail.sendMail(mailId, feedback,farmerName);
 	}
     
     

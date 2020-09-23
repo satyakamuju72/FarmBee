@@ -12,7 +12,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Mail {
-	public void sendMail(String mailId, String feedback){
+	public void sendMail(String mailId, String feedback, String farmerName){
 		String recipient= mailId;
 		Properties properties=new Properties();
 		properties.put("mail.smtp.auth","true");
@@ -32,7 +32,7 @@ public class Mail {
 		message.setFrom(new InternetAddress(myAccountEmail));
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 		message.setSubject("Your recent feedback to FarmBee");
-		String htmlCode="<h1>Thanks for your Feedback</h1><h2 style='color:orange;'>"+feedback+"</h2>";
+		String htmlCode="<h4>Hey "+farmerName+" ,Thanks for your Feedback</h4><h2 style='color:orange;'>"+feedback+"</h2>";
 		message.setContent(htmlCode,"text/html");
 		Transport.send(message);
 		System.out.println("Mail Sent Successfully!");
