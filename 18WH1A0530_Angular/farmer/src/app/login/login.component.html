@@ -67,10 +67,12 @@
       </div>
 
       <div class="modal-body">
-          <form class="form-group">
-              <label for="exampleFormControlTextarea6"></label><br/>
-               <input type="number" name="number" ngModel #title="ngModel"  [(ngModel)] ='number' pattern="[0-9]{10}" required placeholder="**********" ><br/><br />
-          </form>
+        <form class="form-group">
+          <label for="exampleFormControlTextarea6"></label><br />
+          <input type="text" name="id" ngModel #title="ngModel" [(ngModel)]='id' rows="5" cols="50" placeholder="loginId" required><br /><br />
+          <label for="exampleFormControlTextarea6"></label><br />
+          <input type="number" name="number" ngModel #title="ngModel" [(ngModel)]='number' pattern="[0-9]{10}" required placeholder="**********"><br /><br />
+        </form>
 
       </div>
       <div class="modal-footer">

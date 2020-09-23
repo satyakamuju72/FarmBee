@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   otpd:any;
   otpsent:any;
   newpwd: any;
+  id:any;
   constructor(private router: Router, private service: FarmService, private notifyService: NotificationService) {
     this.login = { loginId: '', password: '' };
     this.farmer = { farmerId: '', farmerName: '', farmerMobile: '', emailId: '', loginId: '', password: '' };
@@ -76,7 +77,8 @@ export class LoginComponent implements OnInit {
   }
 
   validate() {
-    console.log(this.number)
+      console.log(this.number)
+      console.log(this.id)
     this.temp = String(this.number);
     if (this.numList) {
       if ((this.numList).indexOf(this.temp) > -1) {
