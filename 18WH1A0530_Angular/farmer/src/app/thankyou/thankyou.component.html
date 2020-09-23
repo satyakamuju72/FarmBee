@@ -107,7 +107,11 @@
 
             </div>
         </div>
-      <br />
+        <br /><br />
+        <textarea type="text" name="submitfeedback" ngModel #title="ngModel" [(ngModel)]='submitfeedback' rows="5" cols="50" placeholder="Your message" required></textarea>
+        <br />
+
+        <br />
         <button class="btn btn-primary btn-sm" (click)="submitFarmer()" data-dismiss="modal">Submit</button>
     </div>
     </div>

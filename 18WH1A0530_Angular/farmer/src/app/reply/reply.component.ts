@@ -61,7 +61,7 @@ export class ReplyComponent implements OnInit {
     }
   }
   initializeVoiceRecognitionCallback(): void {
-		annyang.addCallback('error', (err) => {
+		annyang.addCallback('error', (err) => { 
       if(err.error === 'network'){
         this.voiceText = "Internet is require";
         annyang.abort();

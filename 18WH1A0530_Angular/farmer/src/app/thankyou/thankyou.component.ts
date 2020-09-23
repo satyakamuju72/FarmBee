@@ -9,6 +9,7 @@ import { NotificationService } from '../notification.service';
 })
 export class ThankyouComponent implements OnInit {
     feedbackrate: any
+    submitfeedback: any;
     constructor(private router: Router, private notifyService: NotificationService) { 
                 this.feedbackrate = 0;
     }
