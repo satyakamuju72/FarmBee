@@ -21,6 +21,7 @@ import com.dao.BookingDAO;
 import com.dao.FarmerDAO;
 import com.dao.QuestionDAO;
 import com.dao.VehicleDAO;
+import com.db.Mail;
 import com.dto.Answer;
 import com.dto.Booking;
 import com.dto.Farmer;
@@ -95,6 +96,7 @@ public class MyResource {
    	@GET
    	@Produces(MediaType.APPLICATION_JSON)
    	public void updatePass(@PathParam("number") String number, @PathParam("password") String password){
+    	password = BCrypt.hashpw(password, BCrypt.gensalt());
    		System.out.println("Data Recieved in updatepassword : " + number + password); 
    		new FarmerDAO().updatepassword(number, password);
    		
@@ -284,6 +286,7 @@ public class MyResource {
    	@PUT
    	@Consumes(MediaType.APPLICATION_JSON)
    	public void updateFarm(Farmer farmer){
+    	farmer.setPassword(BCrypt.hashpw(farmer.getPassword(), BCrypt.gensalt()));
    		System.out.println("Data Recieved in update : " + farmer); 
    		new FarmerDAO().update(farmer);
    		
@@ -298,11 +301,20 @@ public class MyResource {
     public int SMSSending(@PathParam("number") String mobile ) {
     	int otp = (int) (Math.random()*9000)+1000;
     	System.out.println(mobile);
-		Twilio.init("AC2d7cb43faf4b771b97a1588b50233448", "cb0f2d867dfbcfefb6822c3b20b9bc2a");
-		Message message = Message.creator(new PhoneNumber("+91"+mobile), new PhoneNumber("+18138561208"), "\n\nHello, Your otp to reset password - " + otp).create();
+		Twilio.init("AC7621bf81dd316f6c876189498dba7986", "da8ca36e0e72dce471547a1a251aaaed");
+		Message message = Message.creator(new PhoneNumber("+91"+mobile), new PhoneNumber("+19285827798"), "\n\nHello, Your otp to reset password - " + otp).create();
 
 		System.out.println(message.getSid() +"" + otp);
 		return otp;
+	}
+    @Path("SendMail/{farmerId}/{feedback}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public void sendMail(@PathParam("farmerId") int  farmerId, @PathParam("feedback") String feedback){
+		Farmer farmer = new FarmerDAO().getFarmer(farmerId);
+		String mailId = farmer.getEmailId();
+		Mail mail = new Mail();
+		mail.sendMail(mailId, feedback);
 	}
     
     
