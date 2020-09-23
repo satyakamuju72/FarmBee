@@ -34,6 +34,16 @@ public class FarmerDAO {
 
 		return (Farmer)HibernateTemplate.getObjectByUserPass(loginId,password);
 	}
+	public Farmer getFarmerByLoginIdPhoneNumber(String loginId, String mobile){
+		Configuration config = new Configuration();
+		config.configure("hibernate.cfg.xml");
+		SessionFactory factory = config.buildSessionFactory();
+		Session session = factory.openSession();
+		Query q1 = session.createQuery("from Farmer f where f.farmerMobile=:mobile and f.loginId=:loginId" );
+		q1.setParameter("loginId", loginId);
+		q1.setParameter("mobile", mobile);
+		return (Farmer)q1.uniqueResult();
+		}
 	public List<String> getNumbers(){
 		Session session = getSession();
 		Query q1 = session.createQuery("select f.farmerMobile from Farmer f");

@@ -301,11 +301,17 @@ public class MyResource {
     public int SMSSending(@PathParam("number") String mobile ) {
     	int otp = (int) (Math.random()*9000)+1000;
     	System.out.println(mobile);
-		Twilio.init("AC7621bf81dd316f6c876189498dba7986", "da8ca36e0e72dce471547a1a251aaaed");
-		Message message = Message.creator(new PhoneNumber("+91"+mobile), new PhoneNumber("+19285827798"), "\n\nHello, Your otp to reset password - " + otp).create();
+		Twilio.init("ACaf069e719a13a5812e445341e1afa5f6","df056d4107a1f43166019ef00282d2c2");
+		Message message = Message.creator(new PhoneNumber("+91"+mobile), new PhoneNumber("+19284938617"), "\n\nHello, Your otp to reset password - " + otp).create();
 
 		System.out.println(message.getSid() +"" + otp);
 		return otp;
+	}
+    @Path("LoginVerify/{loginId}/{mobile}")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Farmer verifyLogin(@PathParam("loginId") String  loginId, @PathParam("mobile") String mobile){
+		return new FarmerDAO().getFarmerByLoginIdPhoneNumber(loginId, mobile);
 	}
     @Path("SendMail/{farmerId}/{feedback}")
 	@GET
