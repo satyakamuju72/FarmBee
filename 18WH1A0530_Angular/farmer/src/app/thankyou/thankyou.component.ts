@@ -18,6 +18,7 @@ export class ThankyouComponent implements OnInit {
 
     }
     submitFarmer(){
+         this.service.sendMail(this.submitfeedback).subscribe();
         this.notifyService.showSuccess("Thank you for your feedback💜", "Feedback Recorded!");
 
         this.router.navigate(['home']);
