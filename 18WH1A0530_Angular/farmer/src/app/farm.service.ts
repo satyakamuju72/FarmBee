@@ -165,6 +165,9 @@ export class FarmService {
   }
     sendMail(feedback : any){
     return this.httpClient.get('RESTAPIPRO/webapi/myresource/SendMail/'+this.farmerId+'/'+feedback);
+}
+    LoginVerify(loginId: any,number:any){
+    return this.httpClient.get('RESTAPIPRO/webapi/myresource/LoginVerify/'+loginId+'/'+number);
   }
 }
 

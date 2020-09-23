@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
   id:any;
   constructor(private router: Router, private service: FarmService, private notifyService: NotificationService) {
     this.login = { loginId: '', password: '' };
-    this.farmer = { farmerId: '', farmerName: '', farmerMobile: '', emailId: '', loginId: '', password: '' };
+      this.farmer = { farmerId: '', farmerName: '', farmerMobile: '', emailId: '', loginId: '', password: '' };
+      this.temp = { farmerId: '', farmerName: '', farmerMobile: '', emailId: '', loginId: '', password: '' };
   }
 
   ngOnInit(): void {
@@ -79,18 +80,20 @@ export class LoginComponent implements OnInit {
   validate() {
       console.log(this.number)
       console.log(this.id)
-    this.temp = String(this.number);
-    if (this.numList) {
-      if ((this.numList).indexOf(this.temp) > -1) {
-        this.service.setNumber(this.number);
-        this.otpverify();
+      if(this.id && this.number){
+      this.service.LoginVerify(this.id,this.number).subscribe((result:any)=>{console.log(result); this.temp=result});
+
+      if(this.temp){
+          this.service.setNumber(this.number);
+          this.otpverify();
       }
       else {
         this.notifyService.showFailure("Enter valid number", "Failure");
       }
-    }
+    
     this.number = "";
-  }
+      }
+      }
 
   otpverify(){
     this.service.getOtp(this.number).subscribe((result: any) => {console.log(result); this.otpsent = result;});
