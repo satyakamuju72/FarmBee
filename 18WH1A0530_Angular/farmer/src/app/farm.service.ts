@@ -163,6 +163,8 @@ export class FarmService {
   getOtp(number:any){
     return this.httpClient.get('RESTAPIPRO/webapi/myresource/OtpSend/'+number);
   }
-
+    sendMail(feedback : any){
+    return this.httpClient.get('RESTAPIPRO/webapi/myresource/SendMail/'+this.farmerId+'/'+feedback);
+  }
 }
 
