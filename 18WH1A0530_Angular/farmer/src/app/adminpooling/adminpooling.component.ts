@@ -30,7 +30,7 @@ export class AdminpoolingComponent implements OnInit {
       this.service.updateBook(this.editObject).subscribe();
     }
     else{
-      this.notify.showFailure("Invalid Vehicle Number","Alert");
+      this.notify.showFailure("Cannot assign a vehicle!","Alert");
       this.ngOnInit();
     }
 
